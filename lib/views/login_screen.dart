@@ -1,10 +1,23 @@
+import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../widgets/green_intro_widget.dart';
+import '../widgets/login_widget.dart';
 
-class LoginScreen extends StatelessWidget {
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  final countryPicker = const FlCountryCodePicker();
+
+  CountryCode countryCode = const CountryCode(name: 'Bangladesh', code: "BD", dialCode: "+880");
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +25,26 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         width: Get.width,
         height: Get.height,
-        child: Column(
-          children: [
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-            greenIntroWidget(),
+              greenIntroWidget(),
 
-            loginWidget(),
+              const SizedBox(height: 50,),
 
-          ],
+              loginWidget(countryCode, ()async{
+                final code = await countryPicker.showPicker(context: context);
+                if (code != null) countryCode = code;
+                setState(() {
+
+                });
+              }),
+
+
+            ],
+          ),
         ),
       ),
     );
