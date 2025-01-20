@@ -51,7 +51,7 @@ Widget loginWidget(CountryCode countryCode, Function onCountryChange){
 
                          // const SizedBox(width: 10,),
 
-                          Icon(Icons.keyboard_arrow_down_rounded)
+                          const Icon(Icons.keyboard_arrow_down_rounded)
                         ],
                       ),
                     ),
@@ -65,10 +65,10 @@ Widget loginWidget(CountryCode countryCode, Function onCountryChange){
               Expanded(
                 flex: 3,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
                       onTap: (){
-                        Get.to(()=> OtpVerificationScreen());
+                        Get.to(()=> const OtpVerificationScreen());
                       },
                     decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(fontSize: 12,fontWeight: FontWeight.normal),
@@ -93,7 +93,7 @@ Widget loginWidget(CountryCode countryCode, Function onCountryChange){
             text: TextSpan(
               style: GoogleFonts.poppins(color: Colors.black, fontSize: 12),
               children: [
-                TextSpan(
+                const TextSpan(
                   text: "${AppConstants.byCreating} ",
                 ),
                 TextSpan(

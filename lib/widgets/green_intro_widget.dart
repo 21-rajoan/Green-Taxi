@@ -6,7 +6,7 @@ Widget greenIntroWidget() {
   return Container(
     width: Get.width,
     height: Get.height * 0.6,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage('assets/mask.png'), fit: BoxFit.cover)),
     child: Stack(
