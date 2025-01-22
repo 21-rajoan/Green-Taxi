@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380431628767",
+    "project_id": "greentaxi-3ac8d",
+    "storage_bucket": "greentaxi-3ac8d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380431628767:android:0b0858049615562c112c6a",
+        "android_client_info": {
+          "package_name": "com.example.green_taxi_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAui_DNOyzvsRi6y7EXgWvl_a6HKDys8GE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

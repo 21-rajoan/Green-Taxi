@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:green_taxi_app/controller/auth_controller.dart';
 import 'package:pinput/pinput.dart';
 
 class RoundedWithShadow extends StatefulWidget {
+
+
   @override
   _RoundedWithShadowState createState() => _RoundedWithShadowState();
 
@@ -13,6 +18,9 @@ class RoundedWithShadow extends StatefulWidget {
 class _RoundedWithShadowState extends State<RoundedWithShadow> {
   final controller = TextEditingController();
   final focusNode = FocusNode();
+
+
+  AuthController authController = Get.find<AuthController>();
 
   @override
   void dispose() {
@@ -50,10 +58,13 @@ class _RoundedWithShadowState extends State<RoundedWithShadow> {
     );
 
     return Pinput(
-      length: 5,
+      length: 6,
       controller: controller,
       focusNode: focusNode,
-      disabledPinTheme: defaultPinTheme.copyWith(
+      onCompleted: (String input){
+        authController.verifyOtp(input);
+      },
+      defaultPinTheme: defaultPinTheme.copyWith(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),

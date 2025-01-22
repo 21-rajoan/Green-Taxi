@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:green_taxi_app/controller/auth_controller.dart';
 import 'package:green_taxi_app/utils/app_colors.dart';
 import 'package:green_taxi_app/widgets/green_intro_widget.dart';
-
-import '../widgets/otp_verification_widget.dart';
 import '../widgets/otp_verification_widget.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
-  const OtpVerificationScreen({Key? key}) : super(key: key);
+
+  String phoneNumber;
+  OtpVerificationScreen(this.phoneNumber);
 
   @override
   State<OtpVerificationScreen> createState() => _State();
 }
 
 class _State extends State<OtpVerificationScreen> {
+
+
+  AuthController authController = Get.put(AuthController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    authController.phoneAuth(widget.phoneNumber);
+  }
+
   @override
   Widget build (BuildContext context) {
     return Scaffold(

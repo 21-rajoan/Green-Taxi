@@ -1,10 +1,10 @@
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_taxi_app/views/otp_verification_screen.dart';
 
 import '../widgets/green_intro_widget.dart';
 import '../widgets/login_widget.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,6 +18,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final countryPicker = const FlCountryCodePicker();
 
   CountryCode countryCode = const CountryCode(name: 'Bangladesh', code: "BD", dialCode: "+880");
+
+
+  onSubmit(String? input){
+    Get.to(()=> OtpVerificationScreen(countryCode.dialCode+input!));
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 setState(() {
 
                 });
-              }),
+              },onSubmit),
 
 
             ],

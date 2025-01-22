@@ -6,7 +6,7 @@ import 'package:green_taxi_app/utils/app_constants.dart';
 import 'package:green_taxi_app/views/otp_verification_screen.dart';
 import 'package:green_taxi_app/widgets/text_widget.dart';
 
-Widget loginWidget(CountryCode countryCode, Function onCountryChange){
+Widget loginWidget(CountryCode countryCode, Function onCountryChange, Function onSubmit){
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20),
     child: Column(
@@ -67,9 +67,7 @@ Widget loginWidget(CountryCode countryCode, Function onCountryChange){
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
-                      onTap: (){
-                        Get.to(()=> const OtpVerificationScreen());
-                      },
+                      onSubmitted: (String? input)=> onSubmit(input),
                     decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(fontSize: 12,fontWeight: FontWeight.normal),
                       hintText: AppConstants.enterMobileNumber,
